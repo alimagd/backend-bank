@@ -1,0 +1,15 @@
+
+
+Explanation:
+
+Mocking the Repository: We're using Mockito's @Mock to mock the AccountRepository so that we don't need to interact with the actual database during testing.
+Injecting the Mocks: We use @InjectMocks to inject the mocked dependencies into AccountServiceImpl.
+Set Up Method: setUp() initializes the mocks and sets up basic data for testing.
+
+@Mock: Creates a mock instance of the AccountService that you can control.
+@InjectMocks: Injects the mock AccountService into the AccountController.
+MockitoAnnotations.openMocks(this): Initializes the mocks.
+when(...).thenReturn(...): Specifies the behavior of the mock AccountService.
+verify(...): Verifies that the AccountService method was called a specific number of times.
+any() and anyDouble(): Used to match any object or double parameter in the mock method calls.
+

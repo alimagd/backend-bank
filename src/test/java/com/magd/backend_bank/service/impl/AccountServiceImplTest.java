@@ -28,7 +28,7 @@ class AccountServiceImplTest {
     private Account account;
     private AccountDto accountDto;
     private Account account2;
-    private AccountDto accountDto2;
+
 
     @BeforeEach
     void setUp() {
@@ -44,7 +44,7 @@ class AccountServiceImplTest {
         account2.setId(2L);
         account2.setAccountHolderName("Pris Joss");
         account2.setBalance(500.0);
-        accountDto2 = new AccountDto(2L,"Pris Joss",500.0);
+
     }
 
     @Test
@@ -120,12 +120,12 @@ class AccountServiceImplTest {
 
     @Test
     void getAllAccounts() {
-        List<Account> accounts = List.of(account);
+        List<Account> accounts = List.of(account,account2);
         when(accountRepository.findAll()).thenReturn(accounts);
 
         List<AccountDto> result = accountService.getAllAccounts();
 
-        assertEquals(1, result.size());
+        assertEquals(2, result.size());
         verify(accountRepository, times(1)).findAll();
     }
 
